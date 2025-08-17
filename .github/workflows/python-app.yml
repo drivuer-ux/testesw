@@ -35,7 +35,7 @@ jobs:
 
       # Passo 5: Fazer upload do arquivo .txt gerado (opcional)
       - name: Upload moradias_santo_antonio.txt
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Usando v3, a versão mais recente
         with:
           name: moradias_santo_antonio
           path: moradias_santo_antonio.txt
