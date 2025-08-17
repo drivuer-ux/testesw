@@ -1,0 +1,34 @@
+name: Testar API Manus
+
+on:
+  push:
+    branches:
+      - main  # Quando você fizer push para a branch 'main'
+  pull_request:
+    branches:
+      - main  # Quando fizer um pull request para a branch 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Usa uma máquina virtual com Ubuntu
+
+    steps:
+      # Passo 1: Checar o código do repositório
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      # Passo 2: Configurar o Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  # Versão do Python, ajuste se necessário
+
+      # Passo 3: Instalar dependências
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Passo 4: Rodar o código
+      - name: Run the API test
+        run: |
+          python main.py
